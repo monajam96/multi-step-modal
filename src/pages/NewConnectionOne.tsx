@@ -46,10 +46,11 @@ const NewConnectionOne = () => {
       ...JSON.parse(step1Data || "{}"),
       ...data2,
     };
-    localStorage.setItem("newConnectionFull", JSON.stringify(mergedData));
+    const prev =JSON.parse(localStorage.getItem("newConnections") || "[]");
+   prev.push({id:crypto.randomUUID(),createdAt:new Date().toISOString(),...mergedData});
+    localStorage.setItem("newConnections", JSON.stringify(prev));
     console.log("All Form Data:", mergedData);
 
-    // Optionally navigate or show success message
     alert("اطلاعات با موفقیت ذخیره شد!");
   };
   return (
@@ -271,7 +272,6 @@ const NewConnectionOne = () => {
             onSubmit={handleSubmit2(onSubmitStep2)}
             className="grid grid-cols-12 gap-4 gap-y-6"
           >
-            {/* نوع انشعاب */}
             <div className="col-span-4 flex flex-col">
               <label className="font-bold text-[#1B6442]">نوع انشعاب</label>
               <select
@@ -292,7 +292,6 @@ const NewConnectionOne = () => {
               )}
             </div>
 
-            {/* شماره درخواست */}
             <div className="col-span-4 flex flex-col">
               <label className="font-bold text-[#1B6442]">شماره درخواست</label>
               <input
@@ -318,7 +317,6 @@ const NewConnectionOne = () => {
               )}
             </div>
 
-            {/* نوع تعرفه */}
             <div className="col-span-4 flex flex-col">
               <label className="font-bold text-[#1B6442]">نوع تعرفه</label>
               <select
@@ -339,7 +337,6 @@ const NewConnectionOne = () => {
               )}
             </div>
 
-            {/* تاریخ شروع */}
             <div className="col-span-4 flex flex-col">
               <label className="font-bold text-[#1B6442]">
                 تاریخ شروع خدمت

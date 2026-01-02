@@ -17,7 +17,7 @@ function Sidebar() {
   const navigate = useNavigate()
   const menu: MenuItem[] = [
     { icon: HomeOutlinedIcon, title: "صفحه اصلی",navigation:"/" },
-    { icon: InboxOutlinedIcon, title: "کارتابل" ,navigation:"/"},
+    { icon: InboxOutlinedIcon, title: "کارتابل" ,navigation:"/cartable"},
     { icon: ConfirmationNumberOutlinedIcon, title: "تیکت ها" ,navigation:"/"},
     { icon: NotificationsNoneOutlinedIcon, title: "اعلان ها" ,navigation:"/"},
     { icon: SettingsOutlinedIcon, title: "تنظیمات" ,navigation:"/"},
